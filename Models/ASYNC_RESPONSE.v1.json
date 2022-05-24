@@ -1,0 +1,232 @@
+{
+  "openapi": "3.1.0",
+  "x-stoplight": {
+    "id": "mqwm7dx9bisss"
+  },
+  "info": {
+    "title": "CapsulesApi",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/api/prepareCanopyForTakeOff": {
+      "parameters": [],
+      "post": {
+        "summary": "prepareCanopyForTakeOff",
+        "operationId": "post-api-prepareCanopyForTakeOff",
+        "responses": {
+          "200": {
+            "description": "The response. Success respose means that the process started. The process status should be monitored from the capsules telemetry.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASYNC_RESPONSE.v1"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "canopyId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "description": "The unique canopy id "
+        },
+        "description": "Generic call for the canopy to be prepared for drone takeoff. Each canopy has it's own logic and sequence of actions - e.g : stop charging, open bars, open cover ..."
+      }
+    },
+    "/api/prepareCanopyForLanding": {
+      "post": {
+        "summary": "prepareCanopyForLanding",
+        "operationId": "post-user",
+        "responses": {
+          "200": {
+            "description": "The response. Success respose means that the process started. The process status should be monitored from the capsules telemetry.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASYNC_RESPONSE.v1"
+                },
+                "examples": {
+                  "New User Bob Fellow": {
+                    "value": {
+                      "id": 12,
+                      "firstName": "Bob",
+                      "lastName": "Fellow",
+                      "email": "bob.fellow@gmail.com",
+                      "dateOfBirth": "1996-08-24",
+                      "emailVerified": false,
+                      "createDate": "2020-11-18"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing Required Information"
+          },
+          "409": {
+            "description": "Email Already Taken"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "canopyId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {
+                "Create User Bob Fellow": {
+                  "value": {
+                    "firstName": "Bob",
+                    "lastName": "Fellow",
+                    "email": "bob.fellow@gmail.com",
+                    "dateOfBirth": "1996-08-24"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "canopyId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "description": "The canopy unique id"
+        },
+        "description": "Generic call for the canopy to be prepared after drone landing. Each canopy has it's own logic and sequence of actions - e.g : open bars, open cover ..."
+      },
+      "parameters": []
+    },
+    "/api/prepareCanopyForAfterLanding": {
+      "post": {
+        "summary": "prepareCanopyForAfterLanding",
+        "operationId": "post-user",
+        "responses": {
+          "200": {
+            "description": "The response. Success respose means that the process started. The process status should be monitored from the capsules telemetry.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ASYNC_RESPONSE.v1"
+                },
+                "examples": {
+                  "New User Bob Fellow": {
+                    "value": {
+                      "id": 12,
+                      "firstName": "Bob",
+                      "lastName": "Fellow",
+                      "email": "bob.fellow@gmail.com",
+                      "dateOfBirth": "1996-08-24",
+                      "emailVerified": false,
+                      "createDate": "2020-11-18"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing Required Information"
+          },
+          "409": {
+            "description": "Email Already Taken"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "canopyId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "examples": {
+                "Create User Bob Fellow": {
+                  "value": {
+                    "firstName": "Bob",
+                    "lastName": "Fellow",
+                    "email": "bob.fellow@gmail.com",
+                    "dateOfBirth": "1996-08-24"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "canopyId": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "description": "The canopy unique id"
+        },
+        "description": "Generic call for the canopy to be prepared after drone landing. Each canopy has it's own logic and sequence of actions - e.g : close bars, start charge, close cover ..."
+      },
+      "parameters": []
+    }
+  },
+  "components": {
+    "schemas": {
+      "ASYNC_RESPONSE.v1": {
+        "title": "ASYNC_RESPONSE",
+        "type": "object",
+        "description": "General response",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "success"
+        ]
+      }
+    }
+  }
+}
