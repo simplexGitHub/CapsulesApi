@@ -24,7 +24,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASYNC_RESPONSE.v1"
+                  "$ref": "../../Models/ASYNC_RESPONSE.json"
                 }
               }
             }
@@ -36,7 +36,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "canopyId": {
+                  "capsuleId": {
                     "type": "string"
                   }
                 }
@@ -58,7 +58,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASYNC_RESPONSE.v1"
+                  "$ref": "../../Models/ASYNC_RESPONSE.json"
                 },
                 "examples": {
                   "New User Bob Fellow": {
@@ -89,7 +89,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "canopyId": {
+                  "capsuleId": {
                     "type": "string"
                   }
                 }
@@ -138,7 +138,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ASYNC_RESPONSE.v1"
+                  "$ref": "../../Models/ASYNC_RESPONSE.json"
                 },
                 "examples": {
                   "New User Bob Fellow": {
@@ -169,7 +169,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "canopyId": {
+                  "capsuleId": {
                     "type": "string"
                   }
                 }
